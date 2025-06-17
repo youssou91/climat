@@ -30,7 +30,7 @@ def get_weather():
     return weather
 
 @app.get("/info")
-def get_info():
+def get_info(): 
     current_time = datetime.now().isoformat()
     formated_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     formated_time = datetime.now().strftime("%H:%M:%S")
