@@ -28,7 +28,7 @@ def get_weather():
             "timestamp": datetime.now().isoformat()
         }
 
-@app.get("/info")
+@app.get("/infos")
 def get_info():
     now = datetime.now()
     return {
