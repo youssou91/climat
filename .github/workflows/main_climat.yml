@@ -22,7 +22,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.10'
 
       - name: Create and start virtual environment
         run: |
@@ -48,9 +48,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
       contents: read #This is required for actions/checkout
@@ -68,9 +65,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_BF11E085E4544F5EBDB72D4FDD7D46FB }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6DA96CEBBF9341BB8C50499F4E4BB849 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_9E441C69EECF46F18124F432C3D3BF14 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_59772C175E1F48DBBDD1DDDDAB325B9B }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4A86D06AE1B649F1904A67D152CF7900 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7409A74B3BB5480AB0BA83004C822E28 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
